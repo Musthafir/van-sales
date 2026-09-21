@@ -1,0 +1,93 @@
+MAHRJAN VAN SALES v2 — PUT IT ON THE PHONES
+===========================================
+
+Do these in order. Step 1 must work before step 2 is any use.
+
+
+STEP 1 — THE GOOGLE SCRIPT
+--------------------------
+In the other download (apps-script-v3):
+
+1. Open the STORE ISSUE sheet -> Extensions -> Apps Script.
+2. Select everything in the editor, delete it.
+3. Paste all of Code-for-Notepad.txt. Save.
+4. Deploy -> New deployment -> gear -> Web app.
+       Execute as:     Me
+       Who has access: Anyone
+   Deploy, authorise, and copy the URL. It ends in /exec.
+5. Check it: open that URL with  ?action=diag  on the end.
+   Every one of the nine tables must show a sheet name.
+   Anything reading NOT FOUND is a heading that does not match.
+
+Keep that /exec URL. You need it in step 3.
+
+
+STEP 2 — PUT THE APP ONLINE
+---------------------------
+Upload the SIX files in this folder to your GitHub repo
+(github.com/Musthafir/van-sales):
+
+    index.html   manifest.json   sw.js
+    icon-192.png   icon-512.png   icon-maskable-512.png
+
+Add file -> Upload files -> drag them in -> Commit changes.
+This REPLACES the old app. Same address as before:
+
+    https://musthafir.github.io/van-sales/
+
+Give it 1-2 minutes, then open it on a phone. You should see the
+yellow Mahrjan logo and the sign-in screen.
+
+
+STEP 3 — LINK THE APP TO THE SHEET
+----------------------------------
+1. Sign in as MUSTHAFFIR / 1595.
+2. On the home screen tap "Sheet settings".
+3. Paste the /exec URL from step 1.
+4. Tap Test. It should say Connected - Mahrjan Van Sales 3.0.
+5. Tap Save. The app pulls the item list, routes, users and today's
+   figures straight away.
+
+Do this once per phone. The URL is remembered on that phone.
+
+
+STEP 4 — INSTALL ON EACH PHONE
+------------------------------
+Open https://musthafir.github.io/van-sales/ in Chrome, then menu
+(three dots) -> "Install app" / "Add to Home screen". You get the
+Mahrjan icon and a full-screen app with no browser bars.
+
+Want a real APK instead? The apk-build pack still applies - but bump
+appVersionCode to 2 in twa-manifest.json first, and sign with the
+SAME android.keystore as the first build or Android will refuse the
+update.
+
+
+WHO CAN DO WHAT
+---------------
+ADMIN       (MUSTHAFFIR)   everything
+SUPERVISOR  (SANTHOSH,     picks any salesman; enters Board and
+             SHAMEEM,      Return; closes the day
+             JABIR)
+SALESMAN    (the seven)    his own van only; enters Requirement
+                           and Expense; sees the rest
+
+Passwords are changed in the app (home -> Change my password) and the
+change is written into the LOGIN table, so every phone sees it.
+
+
+UPDATING LATER
+--------------
+Replace index.html in the repo and bump the CACHE name at the top of
+sw.js (mahrjan-v2-1 -> mahrjan-v2-2). Phones pick it up on the second
+open. No new APK needed unless the icon or app name changes.
+
+
+IF SOMETHING LOOKS WRONG
+------------------------
+Nothing reaching the sheet   -> Sheet settings -> Test. If that fails
+                                the deployment is not set to Anyone.
+A REQUIREMENT column empty   -> the ITEM_LIST short name and the
+                                REQUIREMENT heading must be identical.
+Old app still showing        -> close the app fully and open twice,
+                                or bump the CACHE name in sw.js.

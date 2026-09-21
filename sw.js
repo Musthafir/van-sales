@@ -1,4 +1,4 @@
-const CACHE = 'vansales-v1';
+const CACHE = 'mahrjan-v2-1';
 const ASSETS = ['./', './index.html', './manifest.json', './icon-192.png', './icon-512.png', './icon-maskable-512.png'];
 self.addEventListener('install', e => {
   e.waitUntil(caches.open(CACHE).then(c => c.addAll(ASSETS)).then(() => self.skipWaiting()));
@@ -9,7 +9,7 @@ self.addEventListener('activate', e => {
 self.addEventListener('fetch', e => {
   const url = new URL(e.request.url);
   if (e.request.method !== 'GET') return;
-  // Google Sheets / Apps Script calls always go to the network.
+  // Apps Script and Google traffic always goes to the network.
   if (url.hostname.indexOf('google') !== -1) return;
   e.respondWith(
     caches.match(e.request).then(hit => hit || fetch(e.request).then(res => {
