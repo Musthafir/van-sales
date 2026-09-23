@@ -2,11 +2,14 @@
   "name": "Mahrjan General Trading",
   "short_name": "Mahrjan",
   "description": "Board, sales, return, requirement, collection and expense for van salesmen.",
-  "id": "/van-sales/",
+  "id": "./",
   "start_url": "./",
   "scope": "./",
   "display": "standalone",
-  "display_override": ["standalone", "fullscreen"],
+  "display_override": [
+    "standalone",
+    "fullscreen"
+  ],
   "orientation": "portrait",
   "background_color": "#0d4a28",
   "theme_color": "#0d4a28",
