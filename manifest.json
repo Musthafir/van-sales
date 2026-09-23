@@ -2,8 +2,8 @@
   "name": "Mahrjan General Trading",
   "short_name": "Mahrjan",
   "description": "Board, sales, return, requirement, collection and expense for van salesmen.",
-  "id": "./",
-  "start_url": "./",
+  "id": "/van-sales/",
+  "start_url": "./index.html",
   "scope": "./",
   "display": "standalone",
   "display_override": [
