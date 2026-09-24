@@ -16,7 +16,17 @@
   iframe { display: block; border: 0; width: 100%; height: 100%; }
 </style>
 <script>
-  if ('serviceWorker' in navigator) navigator.serviceWorker.register('sw.js').catch(function () {});
+  if ('serviceWorker' in navigator) {
+    // A phone that already has the app: when a new version arrives, reload
+    // once so it shows straight away instead of on the next open.
+    var hadOld = !!navigator.serviceWorker.controller, reloaded = false;
+    navigator.serviceWorker.addEventListener('controllerchange', function () {
+      if (!hadOld || reloaded) return;
+      reloaded = true;
+      location.reload();
+    });
+    navigator.serviceWorker.register('sw.js').then(function (r) { r.update(); }).catch(function () {});
+  }
 </script>
 </head>
 <body>
