@@ -1,0 +1,23 @@
+MAHRJAN VAN SALES APP – 19 NOV 2026 (v13.2) – WAREHOUSE POST / PRINT FIX
+=========================================================================
+Changed: van-sales app.html + sw.js only. Sheet scripts and portal are NOT changed.
+
+WHAT CHANGED
+ - Production / Cleaning issue and return: the button is now "Post" (saves only).
+ - After Post the slip opens on screen with all item lines and a green "Posted MGAZ-…" bar.
+ - Tap "Print (RawBT)" to print. After the first print the button says "Reprint (RawBT)".
+ - Why: Android Chrome only opens RawBT from a direct tap. Before, the print started after the
+   save finished (not a tap), so Chrome blocked it and nothing printed. Board printing was not affected.
+
+STEPS
+ 1. GitHub van-sales (signed in as Musthafir): Add file > Upload files > app.html and sw.js > Commit.
+ 2. On the PDT / phones: close the app fully and open it again (twice if the old screen still shows).
+
+FUNCTIONS TO RUN: none.
+
+TEST
+ - Warehouse > Production > Production issue > staff + scan + qty > Post -> slip shows with green bar.
+ - Tap Print (RawBT) -> RawBT opens and prints. Button changes to Reprint (RawBT).
+
+REVERT
+ Upload the two files in "REVERT to v13.1" (rename back to app.html and sw.js) to GitHub van-sales.
